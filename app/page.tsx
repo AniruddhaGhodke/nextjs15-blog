@@ -3,6 +3,8 @@ import { prisma } from "./utils/db";
 import { Suspense } from "react";
 import { BlogPostsGrid } from "@/components/post/Blogpostsgrid";
 
+export const revalidate = 60 * 60; // seconds
+
 const getData = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     const data = await prisma.blogPost.findMany({
