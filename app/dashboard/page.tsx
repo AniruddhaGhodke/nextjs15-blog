@@ -8,6 +8,11 @@ import BlogPostCard from "@/components/general/BlogPostCard";
 const getData = async () => {
     const { getUser } = getKindeServerSession();
     const user = await getUser();
+
+    if (!user?.id) {
+        return []; // Return an empty array instead of causing an error
+    }
+
     const data = await prisma.blogPost.findMany({
         where: {
             authorId: user.id,
