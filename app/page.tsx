@@ -1,7 +1,7 @@
 import BlogPostCard from "@/components/general/BlogPostCard";
 import { prisma } from "./utils/db";
 import { Suspense } from "react";
-import { BlogPostsGrid } from "./post/[id]/page";
+import { BlogPostsGrid } from "@/components/post/Blogpostsgrid";
 
 const getData = async () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
